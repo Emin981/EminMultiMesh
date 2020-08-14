@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/EminMultiMesh/dock/btn_mesh.gd" type="Script" id=1]
+
+[node name="btn_mesh" type="Button"]
+margin_right = 220.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 220, 100 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="." to="." method="_on_btn_mesh_pressed"]
