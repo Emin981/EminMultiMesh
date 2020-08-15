@@ -30,12 +30,12 @@ func SelectIndexUpdate(node_selected,mesh_node_selected,mesh_name):
 	emit_signal("select_mesh",selected_mesh_node,mesh_name)
 
 func add_mesh_to_gui(meshGui):
-	$MeshContainer.add_child(meshGui)
+	$VBoxContainer/ScrollContainer/MeshContainer.add_child(meshGui)
 	mesh_array.append(meshInstance)
 	counter_index+=1
 	
 func remove_mesh_to_gui(node):
-	$MeshContainer.remove_child(node)
+	$VBoxContainer/ScrollContainer/MeshContainer.remove_child(node)
 	mesh_array.erase(selected_mesh_node)
 	selected_mesh_node = null
 	selected_node = null
@@ -45,7 +45,7 @@ func _on_FileDialog_file_selected(path):
 	meshInstance = load(path)
 	var btn_mesh_ins = btn_mesh.instance()
 	if meshInstance != null:
-		btn_mesh_ins.name_mesh = "prova mesh " + str(counter_index)
+		btn_mesh_ins.name_mesh = meshInstance.resource_name
 		btn_mesh_ins.idx = counter_index
 		btn_mesh_ins.mesh_node = meshInstance
 		btn_mesh_ins.connect("selectedIndex",self,"SelectIndexUpdate")

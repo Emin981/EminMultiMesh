@@ -13,5 +13,6 @@ func generate_multimesh(value):
 		multimesh.mesh = get_children()[0].mesh
 		for i in multimesh.instance_count:
 			var origin = get_children()[i].transform.origin
+			get_children()[i].queue_free()
 			print(origin)
 			multimesh.set_instance_transform(i,Transform(Basis(),origin))

@@ -35,20 +35,16 @@ func forward_spatial_gui_input(camera, event):
 				test.mesh = mesh_selected
 				test.transform.origin = result.position
 				test.name = mesh_name
-				if !cur_editor_scene.has_node(multimi.get_path()):
+				if !cur_editor_scene.has_node(mesh_name):
 					multimi.transform.origin = Vector3(0,0,0)
-					multimi.name = "MultiMeshEmin"
+					multimi.name = mesh_name
 					cur_editor_scene.add_child(multimi)
 					multimi.set_owner(cur_editor_scene)
 				else:
-					multimi = cur_editor_scene.get_node(multimi.get_path())
+					multimi = cur_editor_scene.get_node(mesh_name)
 				
 				multimi.add_child(test)
 				test.set_owner(cur_editor_scene)
-				
-		elif event.is_pressed() and event.button_index == BUTTON_RIGHT and !event.is_echo():
-			var hits = VisualServer.instances_cull_ray(from,to,node_s.get_world().scenario)
-			pass
 
 func enable_drawing(value):
 	drawing = value
@@ -65,6 +61,5 @@ func handles(object):
 	return object
 
 func _exit_tree():
-	remove_custom_type("MultiMeshEmin")
 	remove_control_from_container(EditorPlugin.CONTAINER_SPATIAL_EDITOR_SIDE_LEFT,dock_ins)
 	dock_ins.free()

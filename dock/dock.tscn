@@ -14,15 +14,64 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MeshContainer" type="VBoxContainer" parent="."]
-anchor_top = 0.522
-anchor_bottom = 0.522
-margin_top = -242.2
-margin_right = 220.0
-margin_bottom = 241.8
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="drawing" type="CheckButton" parent="VBoxContainer"]
+margin_right = 220.0
+margin_bottom = 40.0
+text = "Draw"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+margin_top = 44.0
+margin_right = 220.0
+margin_bottom = 576.0
+rect_min_size = Vector2( 0, 200 )
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MeshContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 580.0
+margin_right = 220.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_container" type="HBoxContainer" parent="VBoxContainer/CenterContainer"]
+margin_left = 45.0
+margin_right = 174.0
+margin_bottom = 20.0
+custom_constants/separation = 15
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Add_mesh" type="Button" parent="VBoxContainer/CenterContainer/btn_container"]
+margin_right = 50.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 20 )
+text = "Add"
+
+[node name="Remove_mesh" type="Button" parent="VBoxContainer/CenterContainer/btn_container"]
+margin_left = 65.0
+margin_right = 129.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 20 )
+text = "Remove"
 
 [node name="FileDialog" type="FileDialog" parent="."]
 margin_left = 272.0
@@ -35,49 +84,7 @@ mode = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="CenterContainer" type="CenterContainer" parent="."]
-anchor_top = 0.971
-anchor_bottom = 0.971
-margin_top = -17.6
-margin_right = 220.0
-margin_bottom = 17.4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="btn_container" type="HBoxContainer" parent="CenterContainer"]
-margin_left = 45.0
-margin_top = 7.0
-margin_right = 174.0
-margin_bottom = 27.0
-custom_constants/separation = 15
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Add_mesh" type="Button" parent="CenterContainer/btn_container"]
-margin_right = 50.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 50, 20 )
-text = "Add"
-
-[node name="Remove_mesh" type="Button" parent="CenterContainer/btn_container"]
-margin_left = 65.0
-margin_right = 129.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 50, 20 )
-text = "Remove"
-
-[node name="drawing" type="CheckButton" parent="."]
-margin_right = 76.0
-margin_bottom = 40.0
-text = "Draw"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[connection signal="pressed" from="VBoxContainer/drawing" to="." method="_on_drawing_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/btn_container/Add_mesh" to="." method="_on_Add_mesh_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/btn_container/Remove_mesh" to="." method="_on_Remove_mesh_pressed"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
-[connection signal="pressed" from="CenterContainer/btn_container/Add_mesh" to="." method="_on_Add_mesh_pressed"]
-[connection signal="pressed" from="CenterContainer/btn_container/Remove_mesh" to="." method="_on_Remove_mesh_pressed"]
-[connection signal="pressed" from="drawing" to="." method="_on_drawing_pressed"]
