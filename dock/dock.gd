@@ -24,10 +24,10 @@ func _on_Remove_mesh_pressed():
 	if selected_node != null:
 		remove_mesh_to_gui(selected_node)
 
-func SelectIndexUpdate(node_selected,mesh_node_selected):
+func SelectIndexUpdate(node_selected,mesh_node_selected,mesh_name):
 	selected_node = node_selected
 	selected_mesh_node = mesh_node_selected
-	emit_signal("select_mesh",selected_mesh_node)
+	emit_signal("select_mesh",selected_mesh_node,mesh_name)
 
 func add_mesh_to_gui(meshGui):
 	$MeshContainer.add_child(meshGui)

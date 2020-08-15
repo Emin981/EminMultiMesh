@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/EminMultiMesh/multimeshnode/MultiMeshEmin.gd" type="Script" id=1]
+
+[sub_resource type="MultiMesh" id=1]
+color_format = 2
+transform_format = 1
+
+[node name="MultiMeshEmin" type="MultiMeshInstance"]
+multimesh = SubResource( 1 )
+script = ExtResource( 1 )

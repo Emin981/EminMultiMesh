@@ -3,9 +3,11 @@
 [ext_resource path="res://addons/EminMultiMesh/dock/dock.gd" type="Script" id=1]
 
 [node name="EminMultiMesh" type="Control"]
-anchor_right = 0.215
-anchor_bottom = 1.0
-margin_right = -0.159988
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -300.0
+margin_right = 220.0
+margin_bottom = 300.0
 rect_min_size = Vector2( 220, 0 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -13,12 +15,11 @@ __meta__ = {
 }
 
 [node name="MeshContainer" type="VBoxContainer" parent="."]
-anchor_top = 0.072
-anchor_right = 1.0
-anchor_bottom = 0.925
-margin_top = -0.200001
-margin_right = -1.52588e-05
-margin_bottom = -6.10352e-05
+anchor_top = 0.522
+anchor_bottom = 0.522
+margin_top = -242.2
+margin_right = 220.0
+margin_bottom = 241.8
 __meta__ = {
 "_edit_use_anchors_": false
 }

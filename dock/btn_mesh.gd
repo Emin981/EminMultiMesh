@@ -9,4 +9,4 @@ func _ready():
 	text = name_mesh
 
 func _on_btn_mesh_pressed():
-	emit_signal("selectedIndex",self,mesh_node)
+	emit_signal("selectedIndex",self,mesh_node,name_mesh)
