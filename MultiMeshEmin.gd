@@ -7,10 +7,3 @@ func _ready():
 	mm.transform_format = MultiMesh.TRANSFORM_3D
 	multimesh = mm
 
-func add_mesh_instance():
-	
-	pass
-
-func remove_mesh_instance():
-	pass
-

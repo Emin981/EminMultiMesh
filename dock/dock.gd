@@ -2,6 +2,7 @@ tool
 extends Control
 
 signal changeDrawing
+signal select_mesh
 
 var mesh_array = []
 var selected_node = null
@@ -12,6 +13,10 @@ var btn_mesh = preload("btn_mesh.tscn")
 var clickAdd : bool = false
 var clickRem : bool = false
 var drawing : bool = false
+
+func _ready():
+	pass
+
 func _on_Add_mesh_pressed():
 	$FileDialog.show()
 	
@@ -22,6 +27,7 @@ func _on_Remove_mesh_pressed():
 func SelectIndexUpdate(node_selected,mesh_node_selected):
 	selected_node = node_selected
 	selected_mesh_node = mesh_node_selected
+	emit_signal("select_mesh",selected_mesh_node)
 
 func add_mesh_to_gui(meshGui):
 	$MeshContainer.add_child(meshGui)
