@@ -1,20 +1,17 @@
 tool
 extends Control
 
+signal changeDrawing
+
 var mesh_array = []
 var selected_node = null
 var selected_mesh_node = null
 var counter_index = 0
 var meshInstance = null
 var btn_mesh = preload("btn_mesh.tscn")
-var ec
 var clickAdd : bool = false
 var clickRem : bool = false
-
-func _on_new_btn_pressed():
-	print("plugin added into scene")
-	set_physics_process(true)
-
+var drawing : bool = false
 func _on_Add_mesh_pressed():
 	$FileDialog.show()
 	
@@ -50,3 +47,8 @@ func _on_FileDialog_file_selected(path):
 		meshInstance = null
 	else:
 		print("No mesh selected")
+
+
+func _on_drawing_pressed():
+	drawing = !drawing
+	emit_signal("changeDrawing",drawing)

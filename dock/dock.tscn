@@ -13,10 +13,12 @@ __meta__ = {
 }
 
 [node name="MeshContainer" type="VBoxContainer" parent="."]
+anchor_top = 0.072
 anchor_right = 1.0
-anchor_bottom = 0.805
+anchor_bottom = 0.925
+margin_top = -0.200001
 margin_right = -1.52588e-05
-margin_bottom = -3.05176e-05
+margin_bottom = -6.10352e-05
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -34,21 +36,19 @@ __meta__ = {
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-anchor_left = -0.031
-anchor_top = 0.942
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 6.82
-margin_top = -0.200012
-margin_right = -1.52588e-05
+anchor_top = 0.971
+anchor_bottom = 0.971
+margin_top = -17.6
+margin_right = 220.0
+margin_bottom = 17.4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="btn_container" type="HBoxContainer" parent="CenterContainer"]
-margin_left = 13.0
+margin_left = 45.0
 margin_top = 7.0
-margin_right = 207.0
+margin_right = 174.0
 margin_bottom = 27.0
 custom_constants/separation = 15
 alignment = 1
@@ -56,26 +56,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="new_btn" type="Button" parent="CenterContainer/btn_container"]
-margin_right = 50.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 50, 20 )
-text = "New"
-
 [node name="Add_mesh" type="Button" parent="CenterContainer/btn_container"]
-margin_left = 65.0
-margin_right = 115.0
+margin_right = 50.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 50, 20 )
 text = "Add"
 
 [node name="Remove_mesh" type="Button" parent="CenterContainer/btn_container"]
-margin_left = 130.0
-margin_right = 194.0
+margin_left = 65.0
+margin_right = 129.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 50, 20 )
 text = "Remove"
+
+[node name="drawing" type="CheckButton" parent="."]
+margin_right = 76.0
+margin_bottom = 40.0
+text = "Draw"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
-[connection signal="pressed" from="CenterContainer/btn_container/new_btn" to="." method="_on_new_btn_pressed"]
 [connection signal="pressed" from="CenterContainer/btn_container/Add_mesh" to="." method="_on_Add_mesh_pressed"]
 [connection signal="pressed" from="CenterContainer/btn_container/Remove_mesh" to="." method="_on_Remove_mesh_pressed"]
+[connection signal="pressed" from="drawing" to="." method="_on_drawing_pressed"]
