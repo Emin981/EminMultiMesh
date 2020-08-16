@@ -14,6 +14,9 @@ var clickAdd : bool = false
 var clickRem : bool = false
 var drawing : bool = false
 
+var quantity = 1
+var range_distance = 1
+
 func _ready():
 	pass
 
@@ -30,12 +33,12 @@ func SelectIndexUpdate(node_selected,mesh_node_selected,mesh_name):
 	emit_signal("select_mesh",selected_mesh_node,mesh_name)
 
 func add_mesh_to_gui(meshGui):
-	$VBoxContainer/ScrollContainer/MeshContainer.add_child(meshGui)
+	$TabContainer/resource/VBoxContainer/ScrollContainer/MeshContainer.add_child(meshGui)
 	mesh_array.append(meshInstance)
 	counter_index+=1
 	
 func remove_mesh_to_gui(node):
-	$VBoxContainer/ScrollContainer/MeshContainer.remove_child(node)
+	$TabContainer/resource/VBoxContainer/ScrollContainer/MeshContainer.remove_child(node)
 	mesh_array.erase(selected_mesh_node)
 	selected_mesh_node = null
 	selected_node = null
@@ -58,3 +61,12 @@ func _on_FileDialog_file_selected(path):
 func _on_drawing_pressed():
 	drawing = !drawing
 	emit_signal("changeDrawing",drawing)
+
+
+func _on_quantity_slider_value_changed(value):
+	$TabContainer/brush/VBoxContainer/vslider_container/quantity_lbl.set_text("Quantity: " + str(value))
+	quantity = value
+
+func _on_range_slider_value_changed(value):
+	$TabContainer/brush/VBoxContainer/vslider_container2/range_lbl.set_text("Range Distance: " + str(value))
+	range_distance = value

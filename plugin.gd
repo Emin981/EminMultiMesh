@@ -11,6 +11,9 @@ var mesh_name : String = ""
 var multimesh_array = []
 var drawing : bool = false
 
+var quantity = 1
+var range_distance = 1
+
 func _enter_tree():
 	dock_ins = dock.instance()
 	dock_ins.connect("changeDrawing",self,"enable_drawing")
@@ -23,10 +26,12 @@ func mesh_selected(mesh_ins,_mesh_name):
 
 func forward_spatial_gui_input(camera, event):
 	var cur_editor_scene = get_tree().edited_scene_root
+	var captured_event : bool = false
 	if event is InputEventMouseButton and drawing:
 		var from = camera.project_ray_origin(event.position)
 		var to = from + camera.project_ray_normal(event.position) * 1000
 		if event.is_pressed() and event.button_index == BUTTON_LEFT and !event.is_echo():
+			captured_event = true
 			var space_state = get_viewport().world.direct_space_state
 			var result = space_state.intersect_ray(from,to)
 			if result.has("position"):
@@ -45,6 +50,7 @@ func forward_spatial_gui_input(camera, event):
 				
 				multimi.add_child(test)
 				test.set_owner(cur_editor_scene)
+	return captured_event
 
 func enable_drawing(value):
 	drawing = value

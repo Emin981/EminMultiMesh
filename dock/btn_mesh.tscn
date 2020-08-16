@@ -3,9 +3,10 @@
 [ext_resource path="res://addons/EminMultiMesh/dock/btn_mesh.gd" type="Script" id=1]
 
 [node name="btn_mesh" type="Button"]
-margin_right = 220.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 220, 80 )
+margin_right = 200.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 200, 60 )
+size_flags_horizontal = 3
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
