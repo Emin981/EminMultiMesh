@@ -78,12 +78,12 @@ func _on_drawing_pressed():
 
 
 func _on_quantity_slider_value_changed(value):
-	$TabContainer/brush/ScrollContainer/VBoxContainer/vslider_container/quantity_lbl.set_text("Quantity: " + str(value))
+	$TabContainer/brush/vbx/ScrollContainer/VBoxContainer/vslider_container/quantity_lbl.set_text("Quantity: " + str(value))
 	quantity = value
 	emit_signal("quantity_change",quantity)
 
 func _on_range_slider_value_changed(value):
-	$TabContainer/brush/ScrollContainer/VBoxContainer/vslider_container2/range_lbl.set_text("Range Distance: " + str(value))
+	$TabContainer/brush/vbx/ScrollContainer/VBoxContainer/vslider_container2/range_lbl.set_text("Range Distance: " + str(value))
 	range_distance = value
 	emit_signal("range_distance_change",range_distance)
 

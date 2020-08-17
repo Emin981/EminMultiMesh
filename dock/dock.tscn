@@ -34,7 +34,6 @@ __meta__ = {
 }
 
 [node name="resource" type="Tabs" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -103,6 +102,7 @@ rect_min_size = Vector2( 50, 20 )
 text = "Remove"
 
 [node name="brush" type="Tabs" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -111,15 +111,22 @@ margin_right = -4.0
 margin_bottom = -4.0
 tab_align = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/brush"]
+[node name="vbx" type="VBoxContainer" parent="TabContainer/brush"]
 anchor_right = 1.0
-anchor_bottom = 0.945
-margin_bottom = 0.0199585
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/brush/ScrollContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/brush/vbx"]
+margin_right = 212.0
+margin_bottom = 540.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/brush/vbx/ScrollContainer"]
 margin_right = 165.0
 margin_bottom = 376.0
 alignment = 1
@@ -127,14 +134,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="vslider_container" type="VBoxContainer" parent="TabContainer/brush/ScrollContainer/VBoxContainer"]
+[node name="vslider_container" type="VBoxContainer" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer"]
 margin_right = 165.0
 margin_bottom = 34.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="quantity_lbl" type="Label" parent="TabContainer/brush/ScrollContainer/VBoxContainer/vslider_container"]
+[node name="quantity_lbl" type="Label" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/vslider_container"]
 margin_right = 165.0
 margin_bottom = 14.0
 text = "Quantity: 1"
@@ -144,19 +151,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="quantity_slider" type="HSlider" parent="TabContainer/brush/ScrollContainer/VBoxContainer/vslider_container"]
+[node name="quantity_slider" type="HSlider" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/vslider_container"]
 margin_top = 18.0
 margin_right = 165.0
 margin_bottom = 34.0
 min_value = 1.0
 value = 1.0
 
-[node name="vslider_container2" type="VBoxContainer" parent="TabContainer/brush/ScrollContainer/VBoxContainer"]
+[node name="vslider_container2" type="VBoxContainer" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer"]
 margin_top = 38.0
 margin_right = 165.0
 margin_bottom = 72.0
 
-[node name="range_lbl" type="Label" parent="TabContainer/brush/ScrollContainer/VBoxContainer/vslider_container2"]
+[node name="range_lbl" type="Label" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/vslider_container2"]
 margin_right = 165.0
 margin_bottom = 14.0
 text = "Range Distance: 10"
@@ -166,7 +173,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="range_slider" type="HSlider" parent="TabContainer/brush/ScrollContainer/VBoxContainer/vslider_container2"]
+[node name="range_slider" type="HSlider" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/vslider_container2"]
 margin_top = 18.0
 margin_right = 165.0
 margin_bottom = 34.0
@@ -175,12 +182,12 @@ max_value = 1000.0
 step = 10.0
 value = 10.0
 
-[node name="VSplitContainer3" type="VSplitContainer" parent="TabContainer/brush/ScrollContainer/VBoxContainer"]
+[node name="VSplitContainer3" type="VSplitContainer" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer"]
 margin_top = 76.0
 margin_right = 165.0
 margin_bottom = 76.0
 
-[node name="Label2" type="Label" parent="TabContainer/brush/ScrollContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer"]
 margin_top = 80.0
 margin_right = 165.0
 margin_bottom = 94.0
@@ -188,39 +195,39 @@ text = "Random Rotation"
 align = 1
 valign = 1
 
-[node name="VSplitContainer4" type="VSplitContainer" parent="TabContainer/brush/ScrollContainer/VBoxContainer"]
+[node name="VSplitContainer4" type="VSplitContainer" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer"]
 margin_top = 98.0
 margin_right = 165.0
 margin_bottom = 98.0
 
-[node name="option" type="VBoxContainer" parent="TabContainer/brush/ScrollContainer/VBoxContainer"]
+[node name="option" type="VBoxContainer" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer"]
 margin_top = 102.0
 margin_right = 165.0
 margin_bottom = 182.0
 
-[node name="Yrot_check" type="CheckBox" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option"]
+[node name="Yrot_check" type="CheckBox" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option"]
 margin_right = 165.0
 margin_bottom = 24.0
 text = "Randomize Y rotation"
 
-[node name="Xrot_check" type="CheckBox" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option"]
+[node name="Xrot_check" type="CheckBox" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option"]
 margin_top = 28.0
 margin_right = 165.0
 margin_bottom = 52.0
 text = "Randomize X rotation"
 
-[node name="Zrot_check" type="CheckBox" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option"]
+[node name="Zrot_check" type="CheckBox" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option"]
 margin_top = 56.0
 margin_right = 165.0
 margin_bottom = 80.0
 text = "Randomize Z rotation"
 
-[node name="VSplitContainer" type="VSplitContainer" parent="TabContainer/brush/ScrollContainer/VBoxContainer"]
+[node name="VSplitContainer" type="VSplitContainer" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer"]
 margin_top = 186.0
 margin_right = 165.0
 margin_bottom = 186.0
 
-[node name="Label" type="Label" parent="TabContainer/brush/ScrollContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer"]
 margin_top = 190.0
 margin_right = 165.0
 margin_bottom = 204.0
@@ -228,109 +235,108 @@ text = "Random Scale"
 align = 1
 valign = 1
 
-[node name="VSplitContainer2" type="VSplitContainer" parent="TabContainer/brush/ScrollContainer/VBoxContainer"]
+[node name="VSplitContainer2" type="VSplitContainer" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer"]
 margin_top = 208.0
 margin_right = 165.0
 margin_bottom = 208.0
 
-[node name="option2" type="VBoxContainer" parent="TabContainer/brush/ScrollContainer/VBoxContainer"]
+[node name="option2" type="VBoxContainer" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer"]
 margin_top = 212.0
 margin_right = 165.0
 margin_bottom = 376.0
 
-[node name="x_rand_container" type="VBoxContainer" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option2"]
+[node name="x_rand_container" type="VBoxContainer" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2"]
 margin_right = 165.0
 margin_bottom = 52.0
 
-[node name="rand_scale_x" type="CheckBox" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option2/x_rand_container"]
+[node name="rand_scale_x" type="CheckBox" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/x_rand_container"]
 margin_right = 165.0
 margin_bottom = 24.0
 text = "Randomize X Scale"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option2/x_rand_container"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/x_rand_container"]
 margin_top = 28.0
 margin_right = 165.0
 margin_bottom = 52.0
 alignment = 1
 
-[node name="min_x" type="LineEdit" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option2/x_rand_container/HBoxContainer"]
+[node name="min_x" type="LineEdit" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/x_rand_container/HBoxContainer"]
 margin_left = 22.0
 margin_right = 80.0
 margin_bottom = 24.0
 text = "1"
 
-[node name="max_x" type="LineEdit" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option2/x_rand_container/HBoxContainer"]
+[node name="max_x" type="LineEdit" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/x_rand_container/HBoxContainer"]
 margin_left = 84.0
 margin_right = 142.0
 margin_bottom = 24.0
 text = "1"
 
-[node name="y_rand_container" type="VBoxContainer" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option2"]
+[node name="y_rand_container" type="VBoxContainer" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2"]
 margin_top = 56.0
 margin_right = 165.0
 margin_bottom = 108.0
 
-[node name="rand_scale_y" type="CheckBox" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option2/y_rand_container"]
+[node name="rand_scale_y" type="CheckBox" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/y_rand_container"]
 margin_right = 165.0
 margin_bottom = 24.0
 text = "Randomize Y Scale"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option2/y_rand_container"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/y_rand_container"]
 margin_top = 28.0
 margin_right = 165.0
 margin_bottom = 52.0
 alignment = 1
 
-[node name="min_y" type="LineEdit" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option2/y_rand_container/HBoxContainer2"]
+[node name="min_y" type="LineEdit" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/y_rand_container/HBoxContainer2"]
 margin_left = 22.0
 margin_right = 80.0
 margin_bottom = 24.0
 text = "1"
 
-[node name="max_y" type="LineEdit" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option2/y_rand_container/HBoxContainer2"]
+[node name="max_y" type="LineEdit" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/y_rand_container/HBoxContainer2"]
 margin_left = 84.0
 margin_right = 142.0
 margin_bottom = 24.0
 text = "1"
 
-[node name="z_rand_container" type="VBoxContainer" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option2"]
+[node name="z_rand_container" type="VBoxContainer" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2"]
 margin_top = 112.0
 margin_right = 165.0
 margin_bottom = 164.0
 
-[node name="rand_scale_z" type="CheckBox" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option2/z_rand_container"]
+[node name="rand_scale_z" type="CheckBox" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/z_rand_container"]
 margin_right = 165.0
 margin_bottom = 24.0
 text = "Randomize Z Scale"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option2/z_rand_container"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/z_rand_container"]
 margin_top = 28.0
 margin_right = 165.0
 margin_bottom = 52.0
 alignment = 1
 
-[node name="min_z" type="LineEdit" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option2/z_rand_container/HBoxContainer3"]
+[node name="min_z" type="LineEdit" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/z_rand_container/HBoxContainer3"]
 margin_left = 22.0
 margin_right = 80.0
 margin_bottom = 24.0
 text = "1"
 
-[node name="max_z" type="LineEdit" parent="TabContainer/brush/ScrollContainer/VBoxContainer/option2/z_rand_container/HBoxContainer3"]
+[node name="max_z" type="LineEdit" parent="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/z_rand_container/HBoxContainer3"]
 margin_left = 84.0
 margin_right = 142.0
 margin_bottom = 24.0
 text = "1"
 
-[node name="CenterContainer" type="CenterContainer" parent="TabContainer/brush"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -20.0
+[node name="CenterContainer" type="CenterContainer" parent="TabContainer/brush/vbx"]
+margin_top = 544.0
+margin_right = 212.0
+margin_bottom = 564.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="generate_btn" type="Button" parent="TabContainer/brush/CenterContainer"]
+[node name="generate_btn" type="Button" parent="TabContainer/brush/vbx/CenterContainer"]
 margin_left = 77.0
 margin_right = 135.0
 margin_bottom = 20.0
@@ -342,18 +348,18 @@ __meta__ = {
 [connection signal="pressed" from="TabContainer/resource/VBoxContainer/drawing" to="." method="_on_drawing_pressed"]
 [connection signal="pressed" from="TabContainer/resource/VBoxContainer/CenterContainer/btn_container/Add_mesh" to="." method="_on_Add_mesh_pressed"]
 [connection signal="pressed" from="TabContainer/resource/VBoxContainer/CenterContainer/btn_container/Remove_mesh" to="." method="_on_Remove_mesh_pressed"]
-[connection signal="value_changed" from="TabContainer/brush/ScrollContainer/VBoxContainer/vslider_container/quantity_slider" to="." method="_on_quantity_slider_value_changed"]
-[connection signal="value_changed" from="TabContainer/brush/ScrollContainer/VBoxContainer/vslider_container2/range_slider" to="." method="_on_range_slider_value_changed"]
-[connection signal="toggled" from="TabContainer/brush/ScrollContainer/VBoxContainer/option/Yrot_check" to="." method="_on_Yrot_check_toggled"]
-[connection signal="toggled" from="TabContainer/brush/ScrollContainer/VBoxContainer/option/Xrot_check" to="." method="_on_Xrot_check_toggled"]
-[connection signal="toggled" from="TabContainer/brush/ScrollContainer/VBoxContainer/option/Zrot_check" to="." method="_on_Zrot_check_toggled"]
-[connection signal="toggled" from="TabContainer/brush/ScrollContainer/VBoxContainer/option2/x_rand_container/rand_scale_x" to="." method="_on_rand_scale_x_toggled"]
-[connection signal="text_changed" from="TabContainer/brush/ScrollContainer/VBoxContainer/option2/x_rand_container/HBoxContainer/min_x" to="." method="_on_min_x_text_changed"]
-[connection signal="text_changed" from="TabContainer/brush/ScrollContainer/VBoxContainer/option2/x_rand_container/HBoxContainer/max_x" to="." method="_on_max_x_text_changed"]
-[connection signal="toggled" from="TabContainer/brush/ScrollContainer/VBoxContainer/option2/y_rand_container/rand_scale_y" to="." method="_on_rand_scale_y_toggled"]
-[connection signal="text_changed" from="TabContainer/brush/ScrollContainer/VBoxContainer/option2/y_rand_container/HBoxContainer2/min_y" to="." method="_on_min_y_text_changed"]
-[connection signal="text_changed" from="TabContainer/brush/ScrollContainer/VBoxContainer/option2/y_rand_container/HBoxContainer2/max_y" to="." method="_on_max_y_text_changed"]
-[connection signal="toggled" from="TabContainer/brush/ScrollContainer/VBoxContainer/option2/z_rand_container/rand_scale_z" to="." method="_on_rand_scale_z_toggled"]
-[connection signal="text_changed" from="TabContainer/brush/ScrollContainer/VBoxContainer/option2/z_rand_container/HBoxContainer3/min_z" to="." method="_on_min_z_text_changed"]
-[connection signal="text_changed" from="TabContainer/brush/ScrollContainer/VBoxContainer/option2/z_rand_container/HBoxContainer3/max_z" to="." method="_on_max_z_text_changed"]
-[connection signal="pressed" from="TabContainer/brush/CenterContainer/generate_btn" to="." method="_on_generate_btn_pressed"]
+[connection signal="value_changed" from="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/vslider_container/quantity_slider" to="." method="_on_quantity_slider_value_changed"]
+[connection signal="value_changed" from="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/vslider_container2/range_slider" to="." method="_on_range_slider_value_changed"]
+[connection signal="toggled" from="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option/Yrot_check" to="." method="_on_Yrot_check_toggled"]
+[connection signal="toggled" from="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option/Xrot_check" to="." method="_on_Xrot_check_toggled"]
+[connection signal="toggled" from="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option/Zrot_check" to="." method="_on_Zrot_check_toggled"]
+[connection signal="toggled" from="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/x_rand_container/rand_scale_x" to="." method="_on_rand_scale_x_toggled"]
+[connection signal="text_changed" from="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/x_rand_container/HBoxContainer/min_x" to="." method="_on_min_x_text_changed"]
+[connection signal="text_changed" from="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/x_rand_container/HBoxContainer/max_x" to="." method="_on_max_x_text_changed"]
+[connection signal="toggled" from="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/y_rand_container/rand_scale_y" to="." method="_on_rand_scale_y_toggled"]
+[connection signal="text_changed" from="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/y_rand_container/HBoxContainer2/min_y" to="." method="_on_min_y_text_changed"]
+[connection signal="text_changed" from="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/y_rand_container/HBoxContainer2/max_y" to="." method="_on_max_y_text_changed"]
+[connection signal="toggled" from="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/z_rand_container/rand_scale_z" to="." method="_on_rand_scale_z_toggled"]
+[connection signal="text_changed" from="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/z_rand_container/HBoxContainer3/min_z" to="." method="_on_min_z_text_changed"]
+[connection signal="text_changed" from="TabContainer/brush/vbx/ScrollContainer/VBoxContainer/option2/z_rand_container/HBoxContainer3/max_z" to="." method="_on_max_z_text_changed"]
+[connection signal="pressed" from="TabContainer/brush/vbx/CenterContainer/generate_btn" to="." method="_on_generate_btn_pressed"]

@@ -1,11 +1,11 @@
 tool
 extends MultiMeshInstance
 
+export var collision : bool = false
+
 func _ready():
-	var mm = MultiMesh.new()
-	mm.color_format = MultiMesh.COLOR_FLOAT
-	mm.transform_format = MultiMesh.TRANSFORM_3D
-	multimesh = mm
+	if collision:
+		generate_collider()
 
 func generate_multimesh():
 	multimesh.instance_count = get_child_count()
@@ -14,3 +14,15 @@ func generate_multimesh():
 		var transf = get_children()[i].transform
 		get_children()[i].queue_free()
 		multimesh.set_instance_transform(i,transf)
+
+func generate_collider():
+	for i in self.multimesh.instance_count:
+		print("test")
+		var shape = multimesh.mesh.create_trimesh_shape()
+		var collisionShape = CollisionShape.new()
+		var posTrans = Transform().translated(multimesh.get_instance_transform(i).origin)
+		collisionShape.shape = shape
+		var collisionNode = StaticBody.new()
+		collisionNode.transform = posTrans
+		collisionNode.add_child(collisionShape)
+		add_child(collisionNode)

@@ -25,6 +25,7 @@ var min_rand_scale_z : float
 var max_rand_scale_x : float
 var max_rand_scale_y : float
 var max_rand_scale_z : float
+var collision : bool = false
 
 func _enter_tree():
 	dock_ins = dock.instance()
@@ -93,6 +94,10 @@ func forward_spatial_gui_input(camera, event):
 			captured_event = true
 			var space_state = get_viewport().world.direct_space_state
 			var multimi = multimeshnode.instance()
+			var mm = MultiMesh.new()
+			mm.color_format = MultiMesh.COLOR_FLOAT
+			mm.transform_format = MultiMesh.TRANSFORM_3D
+			multimi.multimesh = mm
 			for i in quantity:
 #				(i+rand_range(0,1))*2*PI/quantity
 				var offset_brush = Vector3(range_distance*cos(rand_range(0,1)*2*PI),0,range_distance*sin(rand_range(0,1)*2*PI))
@@ -119,6 +124,7 @@ func forward_spatial_gui_input(camera, event):
 					test.transform.origin = result.position
 					test.name = mesh_name
 					if !cur_editor_scene.has_node(mesh_name):
+						
 						multimi.transform.origin = Vector3(0,0,0)
 						multimi.name = mesh_name
 						cur_editor_scene.add_child(multimi)
