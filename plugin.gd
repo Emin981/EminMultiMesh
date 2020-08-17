@@ -19,12 +19,12 @@ var rand_scale_z : bool = false
 var rand_x : bool = false
 var rand_y : bool = false
 var rand_z : bool = false
-var min_rand_scale_x : bool = false
-var min_rand_scale_y : bool = false
-var min_rand_scale_z : bool = false
-var max_rand_scale_x : bool = false
-var max_rand_scale_y : bool = false
-var max_rand_scale_z : bool = false
+var min_rand_scale_x : float
+var min_rand_scale_y : float
+var min_rand_scale_z : float
+var max_rand_scale_x : float
+var max_rand_scale_y : float
+var max_rand_scale_z : float
 
 func _enter_tree():
 	dock_ins = dock.instance()
