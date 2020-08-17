@@ -8,3 +8,5 @@ Step 4. Toggle on a Draw checkbutton and press on added button.<br>
 Step 5. Draw on 3d viewport by click left of mouse.<br>
 Step 6. In the scene tree you will now find a multimeshinstance among its properties in the inspector you will find the toggle collider (Activate if you want that its collide).<br>
 Step 7. Going into window plugin and select brush and finally generate.<br>
+
+Thanks goes to <b>fenix</b> who helped me understand how to make a plugin and also to the <b>STBL</b> project, which is why I made this plugin
