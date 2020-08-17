@@ -3,6 +3,20 @@ extends Control
 
 signal changeDrawing
 signal select_mesh
+signal quantity_change
+signal range_distance_change
+signal yrot_toggle
+signal xrot_toggle
+signal zrot_toggle
+signal min_scale_x
+signal max_scale_x
+signal min_scale_y
+signal max_scale_y
+signal min_scale_z
+signal max_scale_z
+signal rand_scale_x
+signal rand_scale_y
+signal rand_scale_z
 
 var mesh_array = []
 var selected_node = null
@@ -66,7 +80,48 @@ func _on_drawing_pressed():
 func _on_quantity_slider_value_changed(value):
 	$TabContainer/brush/VBoxContainer/vslider_container/quantity_lbl.set_text("Quantity: " + str(value))
 	quantity = value
+	emit_signal("quantity_change",quantity)
 
 func _on_range_slider_value_changed(value):
 	$TabContainer/brush/VBoxContainer/vslider_container2/range_lbl.set_text("Range Distance: " + str(value))
 	range_distance = value
+	emit_signal("range_distance_change",range_distance)
+
+
+func _on_Yrot_check_toggled(button_pressed):
+	emit_signal("yrot_toggle",button_pressed)
+
+func _on_Xrot_check_toggled(button_pressed):
+	emit_signal("xrot_toggle",button_pressed)
+
+func _on_Zrot_check_toggled(button_pressed):
+	emit_signal("zrot_toggle",button_pressed)
+
+func _on_rand_scale_x_toggled(button_pressed):
+	emit_signal("rand_scale_x",button_pressed)
+
+func _on_min_x_text_changed(new_text):
+	emit_signal("min_scale_x",int(new_text))
+	
+
+func _on_max_x_text_changed(new_text):
+	emit_signal("max_scale_x",int(new_text))
+
+func _on_min_y_text_changed(new_text):
+	emit_signal("min_scale_y",int(new_text))
+
+func _on_max_y_text_changed(new_text):
+	emit_signal("max_scale_y",int(new_text))
+
+func _on_min_z_text_changed(new_text):
+	emit_signal("min_scale_z",int(new_text))
+
+func _on_max_z_text_changed(new_text):
+	emit_signal("max_scale_z",int(new_text))
+
+
+func _on_rand_scale_y_toggled(button_pressed):
+	emit_signal("rand_scale_y",button_pressed)
+
+func _on_rand_scale_z_toggled(button_pressed):
+	emit_signal("rand_scale_z",button_pressed)
