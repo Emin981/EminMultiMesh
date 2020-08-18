@@ -1,9 +1,9 @@
 tool
 extends EditorPlugin
 
-var dock = preload("res://addons/EminMultiMesh/dock/dock.tscn")
+var dock = preload("dock/dock.tscn")
 var dock_ins = null
-var multimeshnode = preload("res://addons/EminMultiMesh/multimeshnode/MultiMeshEmin.tscn")
+var multimeshnode = preload("multimeshnode/MultiMeshEmin.tscn")
 var node_s = null
 
 var mesh_selected : Mesh = null
