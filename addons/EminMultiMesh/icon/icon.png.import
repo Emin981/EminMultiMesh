@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-4c802d58a5124d2dbf7ee8b32efe185b.stex"
+path="res://.import/icon.png-e5e09a3c928bd6ccbc6bebdaed6a0a67.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/addons/EminMultiMesh/icon/icon.png"
-dest_files=[ "res://.import/icon.png-4c802d58a5124d2dbf7ee8b32efe185b.stex" ]
+source_file="res://addons/EminMultiMesh/icon/icon.png"
+dest_files=[ "res://.import/icon.png-e5e09a3c928bd6ccbc6bebdaed6a0a67.stex" ]
 
 [params]
 
