@@ -31,6 +31,8 @@ var drawing : bool = false
 var quantity = 1
 var range_distance = 1
 
+var preview_provider : EditorResourcePreview = null
+var texture_preview = null
 func _ready():
 	pass
 
@@ -58,13 +60,18 @@ func remove_mesh_to_gui(node):
 	selected_node = null
 	counter_index-=1
 
+func Resource_preview_loaded(path,texture,userdata):
+	texture_preview = texture
+
 func _on_FileDialog_file_selected(path):
 	meshInstance = load(path)
+	preview_provider.queue_resource_preview(path,self,"Resource_preview_loaded",null)
 	var btn_mesh_ins = btn_mesh.instance()
 	if meshInstance != null:
 		btn_mesh_ins.name_mesh = meshInstance.resource_name
 		btn_mesh_ins.idx = counter_index
 		btn_mesh_ins.mesh_node = meshInstance
+		btn_mesh_ins.texture_preview = texture_preview
 		btn_mesh_ins.connect("selectedIndex",self,"SelectIndexUpdate")
 		add_mesh_to_gui(btn_mesh_ins)
 		meshInstance = null

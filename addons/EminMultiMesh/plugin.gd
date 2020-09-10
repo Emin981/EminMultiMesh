@@ -45,8 +45,9 @@ func _enter_tree():
 	dock_ins.connect("max_scale_x",self,"max_scale_x_change")
 	dock_ins.connect("max_scale_y",self,"max_scale_y_change")
 	dock_ins.connect("max_scale_z",self,"max_scale_z_change")
+	dock_ins.preview_provider = get_editor_interface().get_resource_previewer()
 	add_control_to_container(EditorPlugin.CONTAINER_SPATIAL_EDITOR_SIDE_LEFT,dock_ins)
-
+	
 func rand_scale_x_change(value):
 	rand_scale_x = value
 func rand_scale_y_change(value):
